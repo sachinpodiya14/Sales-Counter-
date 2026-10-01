@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Lassi Stall Sales Counter">
+  <title>Lassi Stall • Sales Counter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="brand-mark">🥛</div>
+      <div>
+        <p class="eyebrow">CAMPUS STALL</p>
+        <h1>Lassi Counter</h1>
+        <p class="subtitle">Fast, simple sales tracking for your stall.</p>
+      </div>
+    </header>
+
+    <section class="stats-grid" aria-label="Sales summary">
+      <div class="stat-card revenue">
+        <span class="stat-label">Today's Revenue</span>
+        <strong id="revenue">₹0</strong>
+      </div>
+      <div class="stat-card cups">
+        <span class="stat-label">Total Cups Sold</span>
+        <strong id="totalCups">0</strong>
+      </div>
+    </section>
+
+    <section class="products" aria-label="Products">
+      <article class="product-card">
+        <div class="product-icon">🥛</div>
+        <div class="product-info">
+          <span class="tag">CLASSIC</span>
+          <h2>Regular Lassi</h2>
+          <p>₹20 per cup</p>
+        </div>
+        <div class="counter">
+          <button class="counter-btn" data-action="decrease" data-product="regular" aria-label="Decrease regular lassi">−</button>
+          <span id="regularCount">0</span>
+          <button class="counter-btn plus" data-action="increase" data-product="regular" aria-label="Increase regular lassi">+</button>
+        </div>
+      </article>
+
+      <article class="product-card special">
+        <div class="product-icon">✨</div>
+        <div class="product-info">
+          <span class="tag special-tag">SPECIAL</span>
+          <h2>Special Lassi</h2>
+          <p>₹30 per cup</p>
+        </div>
+        <div class="counter">
+          <button class="counter-btn" data-action="decrease" data-product="special" aria-label="Decrease special lassi">−</button>
+          <span id="specialCount">0</span>
+          <button class="counter-btn plus" data-action="increase" data-product="special" aria-label="Increase special lassi">+</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="breakdown">
+      <div class="breakdown-header">
+        <h2>Sales Breakdown</h2>
+        <span id="saveStatus">Saved automatically</span>
+      </div>
+      <div class="breakdown-row">
+        <span>Regular Lassi × <b id="regularBreakdown">0</b></span>
+        <strong id="regularRevenue">₹0</strong>
+      </div>
+      <div class="breakdown-row">
+        <span>Special Lassi × <b id="specialBreakdown">0</b></span>
+        <strong id="specialRevenue">₹0</strong>
+      </div>
+      <div class="breakdown-total">
+        <span>Total</span>
+        <strong id="breakdownTotal">₹0</strong>
+      </div>
+    </section>
+
+    <button class="reset-btn" id="resetBtn">↻ Reset Today's Sales</button>
+
+    <footer>
+      <span>🥤 Lassi Stall Counter</span>
+      <span id="date"></span>
+    </footer>
+  </main>
+
+  <div class="modal hidden" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <div class="modal-icon">⚠️</div>
+      <h2 id="modalTitle">Reset today's sales?</h2>
+      <p>This will set both counters and today's revenue back to zero.</p>
+      <div class="modal-actions">
+        <button class="cancel-btn" id="cancelReset">Cancel</button>
+        <button class="confirm-btn" id="confirmReset">Yes, Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
